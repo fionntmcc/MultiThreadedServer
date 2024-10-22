@@ -11,7 +11,8 @@ public class ServerThread extends Thread {
 	private ObjectOutputStream out;
 	private ObjectInputStream in;
 	private String msg;
-	int num1, num2, result;
+	int num1, num2;
+	String choice;
 	
 	public ServerThread(Socket myConnection)
 	{
@@ -29,6 +30,11 @@ public class ServerThread extends Thread {
 			//Time to start communication with the client.....
 			do
 			{
+				// Choose between addition and subtraction
+				sendMessage("Enter 1 for addition and 2 for subtraction: ");
+				msg = (String)in.readObject();
+				choice = msg;
+				
 				sendMessage("Please enter num1");
 				msg = (String)in.readObject();
 				num1 = Integer.parseInt(msg);
@@ -37,9 +43,13 @@ public class ServerThread extends Thread {
 				msg = (String)in.readObject();
 				num2 = Integer.parseInt(msg);
 				
-				result = num1 + num2;
 				
-				sendMessage("Result is "+result);
+				if (choice.equals("1")) {
+					sendMessage("Result is " + (num1 + num2));
+				}
+				else if (choice.equals("2")) {
+					sendMessage("Result is " + (num1 - num2));
+				}
 				sendMessage("Enter 1 to repeat");
 				
 				msg = (String)in.readObject();

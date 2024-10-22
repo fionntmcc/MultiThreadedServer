@@ -29,27 +29,28 @@ public class Requester{
 			try 
 			{
 				do
-				{
-					message = (String)in.readObject();
-					System.out.println(message);
-					message = input.nextLine();
-					sendMessage(message);
+				{	
+					// Choose between addition and subtraction
+					System.out.println((String)in.readObject());
+					sendMessage(input.nextLine());
 					
-	
-					message = (String)in.readObject();
-					System.out.println(message);
-					message = input.nextLine();
-					sendMessage(message);
+					// num1
+					System.out.println((String)in.readObject());
+					sendMessage(input.nextLine());
 					
-					message = (String)in.readObject();
-					System.out.println(message);
+					// num2
+					System.out.println((String)in.readObject());
+					sendMessage(input.nextLine());
 					
-					message = (String)in.readObject();
-					System.out.println(message);
+					// result
+					System.out.println((String)in.readObject());
+					
+					// repeat
+					System.out.println((String)in.readObject());
 					message = input.nextLine();
 					sendMessage(message);
 				
-				}while(message.equalsIgnoreCase("1"));
+				}while(message.equalsIgnoreCase("1")); // do-while to repeat
 			} 
 			
 			catch (ClassNotFoundException e) {
