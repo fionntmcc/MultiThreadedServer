@@ -31,16 +31,22 @@ public class Requester{
 				do
 				{	
 					// Choose between addition and subtraction
+					String choice = "";
 					System.out.println((String)in.readObject());
-					sendMessage(input.nextLine());
-					
+					do {
+						choice = input.nextLine();
+						System.out.println("Choice: " + choice);
+					} while (!(choice.equals("1") || choice.equals("2") || choice.equals("3")));
+					sendMessage(choice);
 					// num1
 					System.out.println((String)in.readObject());
 					sendMessage(input.nextLine());
 					
-					// num2
-					System.out.println((String)in.readObject());
-					sendMessage(input.nextLine());
+					if (choice.equals("1") || choice.equals("2")) {
+						// num2
+						System.out.println((String)in.readObject());
+						sendMessage(input.nextLine());
+					}
 					
 					// result
 					System.out.println((String)in.readObject());
